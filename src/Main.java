@@ -6,11 +6,11 @@ public class Main{
     // Defino como estaticas para que puedan usarse 
     // dentro de la clase sin necesidad de pasarlas como 
     // parametros.
-
+	static private ModeloAbs almacen;
     static private Scanner sc;
     
     public static void main(String[] args){
-    
+    	almacen = new ModeloArrayList ();
         sc = new Scanner(System.in);
         int opcion=0;
         do{
@@ -82,10 +82,11 @@ public class Main{
 		// TODO Auto-generated method stub
 		
 	}
-
+    //Listado de productos
 	private static void listar() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("<LISTAR>");
+        almacen.listarProductosTodos();
 	}
 
 	private static void vender() {
@@ -102,20 +103,45 @@ public class Main{
 		// TODO Auto-generated method stub
 		
 	}
-
+	//3 - Eliminar productos
 	private static void borrar() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("<ELIMINAR>");
+	      System.out.println("Introduzca un codigo");
+	      // IMPLEMENTAR -> si esta se borra, si no, pues no se puede
+		  int codigo= leerEntero();
+		  //Confirmacion
+		  System.out.println("Desea borrar el codigo? si esta seguro pulse 'S'");
+		  String letra = sc.nextLine();
+		  if("s".equals(letra.toLowerCase())){
+	      if (almacen.borrarProducto(codigo)){
+	    	  System.out.println("El producto ha sido borrado");
+	      }else {
+	          System.out.println("No se puede eliminar");    	  
+	      }
+		  }
 	}
 
 	private static void consultar() {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	//1- Nuevos Productos
 	private static void crear() {
-		// TODO Auto-generated method stub
+		System.out.println("<NUEVO PRODUCTO>");
+	       System.out.println("Introduzca un codigo:");
+	       int codigo = leerEntero();
+	       System.out.println("Introduzca el nombre: ");
+	       String nombre = sc.next();
+	       Producto p = new Producto (codigo,nombre);
+	       
+	       //No supe implementar el stock
+	       System.out.println("Introduzca Stock_min:");
+	       int stock_min = leerEntero();
+	       p.setStock_min(stock_min);
 		
 	}
 
+	
 }
