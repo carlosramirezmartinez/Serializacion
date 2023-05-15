@@ -1,17 +1,34 @@
 
-public class ModeloArrayList extends ModeloAbs {
+/**
+ * Arraylist
+ * 
+ * @author Carlos
+ * @version 1.0
+ */
 
+import java.util.ArrayList;
+public class ModeloArrayList extends ModeloAbs {
+	 private ArrayList <Producto> lista;
 	@Override
 	public boolean insertarProducto(Producto p) {
-		// TODO Auto-generated method stub
-		return false;
+		lista.add(p);
+	    return true;
 	}
 
 	@Override
 	boolean borrarProducto(int codigo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		Producto aux;
+    	boolean borrar=false;
+    	for (int i = 0; i < lista.size(); i++) {
+    		aux = lista.get(i);
+    		if (aux.codigo==codigo) {
+    			lista.remove(lista.get(i));
+    			borrar=true;
+    			break;
+    		}
+    	}
+    	return borrar;
+    }
 
 	@Override
 	public Producto buscarProducto(int codigo) {
@@ -21,8 +38,10 @@ public class ModeloArrayList extends ModeloAbs {
 
 	@Override
 	void listarProductosTodos() {
-		// TODO Auto-generated method stub
-
+		System.out.println("----- MIS PRODUCTOS -----");
+    	for (int i = 0; i < lista.size(); i++) {
+        	System.out.println(lista.get(i));
+        	}
 	}
 
 	@Override

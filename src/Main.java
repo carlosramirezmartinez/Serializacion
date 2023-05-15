@@ -108,9 +108,9 @@ public class Main{
 	private static void borrar() {
 		// TODO Auto-generated method stub
 		System.out.println("<ELIMINAR>");
-	      System.out.println("Introduzca un codigo");
+	      System.out.println("Introduzca un codigo: ");
 	      // IMPLEMENTAR -> si esta se borra, si no, pues no se puede
-		  int codigo= leerEntero();
+		  int codigo = leerEntero();
 		  //Confirmacion
 		  System.out.println("Desea borrar el codigo? si esta seguro pulse 'S'");
 		  String letra = sc.nextLine();
@@ -119,7 +119,7 @@ public class Main{
 	    	  System.out.println("El producto ha sido borrado");
 	      }else {
 	          System.out.println("No se puede eliminar");    	  
-	      }
+	      	}
 		  }
 	}
 
@@ -131,14 +131,14 @@ public class Main{
 	//1- Nuevos Productos
 	private static void crear() {
 		System.out.println("<NUEVO PRODUCTO>");
-	       System.out.println("Introduzca un codigo:");
+	       System.out.println("Introduzca un codigo: ");
 	       int codigo = leerEntero();
 	       System.out.println("Introduzca el nombre: ");
 	       String nombre = sc.next();
 	       Producto p = new Producto (codigo,nombre);
 	       
 	       //No supe implementar el stock
-	       System.out.println("Introduzca Stock_min:");
+	       System.out.println("Introduzca Stock_min: ");
 	       int stock_min = leerEntero();
 	       p.setStock_min(stock_min);
 		
