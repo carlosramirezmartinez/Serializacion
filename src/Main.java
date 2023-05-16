@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 // Crear la clase Producto y completar los metodos
 
+
 public class Main{
     // Defino como estaticas para que puedan usarse 
     // dentro de la clase sin necesidad de pasarlas como 
@@ -101,9 +102,17 @@ public class Main{
 	}
 
 	private static void modificarPrecio() {
-		// TODO Auto-generated method stub
+		 System.out.println("<MODIFICAR PRECIO>");
+	       System.out.println("Introduzca un codigo");
+	       // IMPLEMENTAR => busco producto y actualizo con set
+		   int codigo= leerEntero();
+	       Producto p = almacen.buscarProducto(codigo);
+	       System.out.println("Introduzca el nuevo precio: ");
+	       //Ver como completar
+	       }
+	    
 		
-	}
+	
 	//3 - Eliminar productos
 	private static void borrar() {
 		// TODO Auto-generated method stub
@@ -123,9 +132,18 @@ public class Main{
 		  }
 	}
 
+	//2- Consultar productos
 	private static void consultar() {
-		// TODO Auto-generated method stub
-		
+		   System.out.println("<CONSULTA>");
+	       System.out.print("Introduzca codigo:");
+	       int codigo = leerEntero();
+	       Producto p = almacen.buscarProducto(codigo);
+	       if ( p == null){
+	           System.out.println("El producto no se encuentra en almacen");
+	        }
+	       else {
+	           System.out.println("PRODUCTO "+p);
+	        }
 	}
 	
 	//1- Nuevos Productos
@@ -138,9 +156,9 @@ public class Main{
 	       Producto p = new Producto (codigo,nombre);
 	       
 	       //No supe implementar el stock
-	       System.out.println("Introduzca Stock_min: ");
-	       int stock_min = leerEntero();
-	       p.setStock_min(stock_min);
+	       //System.out.println("Introduzca Stock_min: ");
+	       //int stock_min = leerEntero();
+	       //p.setStock_min(stock_min);
 		
 	}
 

@@ -32,8 +32,15 @@ public class ModeloArrayList extends ModeloAbs {
 
 	@Override
 	public Producto buscarProducto(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		Producto aux=null;
+    	
+    	for (int i = 0; i < lista.size(); i++) {
+    	aux = lista.get(i);
+    	if (aux.codigo==codigo) {
+    		break;
+    		}
+    	}
+        return aux;
 	}
 
 	@Override
