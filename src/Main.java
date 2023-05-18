@@ -79,6 +79,27 @@ public class Main{
         return valor; 
      }
     
+    static private float leerFloat(){
+        // Implementar (Ver teoria try and catch) con el escaner
+		// trato de controlar la excepcion NumberFormatException
+        boolean error = false;
+        float valor =0;
+        String cadena;
+        do {
+        error = false;  
+          try {
+             // Intento leer directamente un entero  
+             cadena = sc.nextLine();
+             valor = Float.parseFloat(cadena);
+             
+            } catch(NumberFormatException e){
+              System.out.println("Error en formato.");
+              error = true;
+            }
+        }
+       while (error);
+       return valor;
+    }
     
     private static void listarPocoStock() {
 		// TODO Auto-generated method stub
@@ -96,9 +117,21 @@ public class Main{
 		
 	}
 
+	//5. Comprar productos
 	private static void comprar() {
-		// TODO Auto-generated method stub
-		
+		   System.out.println("<COMPRAR>");
+	       System.out.println("Introduce codigo");
+	       // IMPLEMENTAR => se pone el producto y cuantos son
+		   System.out.println("Introduce el codigo del producto:");
+	        int codigo= leerEntero();
+	        System.out.println("Introduzca cantidad que quiera vender:");
+	        int cantidad = leerEntero();
+	        Producto p = almacen.buscarProducto(codigo);
+	        if (p != null && cantidad>0) {
+	     	   p.setStock(p.getStock()+cantidad);
+	        }else {
+				System.out.println("No existe este producto y/o cantidad erronea");
+	        }
 	}
 
 	private static void modificarPrecio() {
@@ -108,10 +141,13 @@ public class Main{
 		   int codigo= leerEntero();
 	       Producto p = almacen.buscarProducto(codigo);
 	       System.out.println("Introduzca el nuevo precio: ");
-	       //Ver como completar
+	       float precio = leerFloat();
+	       if (precio>0) {
+	       p.setPrecio(precio);
+	       } else {
+				System.out.println("precio erroneo");
 	       }
-	    
-		
+		}
 	
 	//3 - Eliminar productos
 	private static void borrar() {
@@ -156,6 +192,7 @@ public class Main{
 	       Producto p = new Producto (codigo,nombre);
 	       
 	       //No supe implementar el stock
+	       
 	       //System.out.println("Introduzca Stock_min: ");
 	       //int stock_min = leerEntero();
 	       //p.setStock_min(stock_min);

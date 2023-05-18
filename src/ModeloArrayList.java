@@ -8,7 +8,12 @@
 
 import java.util.ArrayList;
 public class ModeloArrayList extends ModeloAbs {
-	 private ArrayList <Producto> lista;
+	 private ArrayList <Producto> lista;	 
+	 
+	 public ModeloArrayList()
+	    {
+	       lista = new ArrayList <Producto>();
+	    }
 	@Override
 	public boolean insertarProducto(Producto p) {
 		lista.add(p);
